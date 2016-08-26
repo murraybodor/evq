@@ -1,0 +1,2 @@
+Manifest-Version: 1.0
+Class-Path: lib/struts.jar lib/log4j-1.2.14.jar lib/commons-logging-1.1.1.jar lib/commons-beanutils.jar lib/commons-digester.jar lib/commons-lang-2.0.jar lib/spring.jar lib/spring-jdbc.jar lib/poi-3.0.1.jar lib/gwt-servlet.jar

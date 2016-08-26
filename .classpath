@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="test"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/spring-jdbc.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/spring.jar" sourcepath="C:/spring-framework-2.0.7/src"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/poi-3.0.1.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/ojdbc14.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/spring-core.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/struts.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/gwt-dev-windows.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/gwt-user.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

@@ -1,0 +1,15 @@
+<module>
+
+	<source path="client"/>
+	<source path="common"/>
+	<source path="rpc"/>
+	<public path="public"/>
+	
+	<!-- Inherit the core Web Toolkit stuff.                  -->
+	<inherits name='com.google.gwt.user.User'/>
+	
+	<!-- Specify the app entry point class.                   -->
+	<entry-point class='ca.aeso.evq.client.ElectricalVolumesQuery'/>
+
+  	<servlet path='/evq.service' class='ca.aeso.evq.server.servlet.EvqServiceImpl'/>
+</module>

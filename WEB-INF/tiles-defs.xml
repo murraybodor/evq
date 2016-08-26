@@ -1,0 +1,15 @@
+<!DOCTYPE tiles-definitions PUBLIC
+  "-//Apache Software Foundation/DTD Tiles Configuration//EN"
+  "http://struts.apache.org/dtds/tiles-config.dtd">
+
+<tiles-definitions>
+  <definition name=".layout.base" path="/WEB-INF/jsp/defaultlayout.jsp">
+    <put name="title"  value="Electrical Volumes Query" />
+    <put name="header" value="/WEB-INF/jsp/header.jsp" />
+    <put name="body-content" value="/WEB-INF/jsp/evqmain.jsp" />
+    <put name="footer" value="/WEB-INF/jsp/footer.jsp" />
+  </definition>
+
+</tiles-definitions>
+
+

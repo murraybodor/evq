@@ -1,0 +1,624 @@
+/*****************************
+ Electrical Volumes GUI CSS
+******************************/
+body {
+	background-color: white;
+	font-family: Arial, sans-serif;
+	font-size: smaller;
+	margin: 20px 20px 20px 20px;
+}
+
+.logo {
+	width: 70px;
+	height: 70px;
+}
+
+a {
+	color: darkblue;
+	text-decoration: none;
+}
+
+a:hover {
+	color: white;
+	background-color: #C3D9FF;
+}
+
+.link {
+	color: darkblue;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.gwt-HTML {
+	font-size: smaller;
+}
+
+.contentlayout {
+	width: 100%;
+	padding: 0px;
+	margin: 0px;
+}
+
+.bodycontent {
+	width: 100%;
+	padding: 0px;
+	margin: 0px;
+}
+
+/*****************************
+             Panels
+******************************/
+.panel {
+	padding: 8px;
+}
+
+.headerPanel {
+	padding: 8px;
+	height: 70px;
+	width: 800px;
+}
+
+.separator {
+	height: 10px;
+	width: 1050px;
+	background-color: #000099;
+}
+
+.historyScrollPanel {
+	width: 1050px;
+	height: 600px;
+	border: solid 1px grey;
+}
+
+.queryHistoryPanel {
+	padding: 5px;
+	width: 1000px;
+	border: solid 2px grey;
+}
+
+.queryDetailPanel {
+	border: solid 2px grey;
+	padding: 5px;
+	width: 1000px;
+}
+
+.queryDetailLeftPanel {
+	padding-bottom: 8px;
+	width: 500px;
+}
+
+.queryDetailRightPanel {
+	padding-bottom: 8px;
+	width: 300px;
+}
+
+.queryDetailLeftRightPanel {
+	padding-right: 8px;
+	padding-bottom: 10px;
+}
+
+.namePanel {
+	padding-right: 5px;
+	padding-bottom: 5px;
+}
+
+.datePanel {
+	border: solid 2px #000099;
+	width: 500px;
+	height: 80px;
+	padding: 3px;
+}
+
+.dateTabPanel {
+	width: 500px;
+	height: 80px;
+}
+
+.specificDateTable {
+	border: solid 2px grey;
+	width: 500px;
+	height: 80px;
+	padding: 5px 0px 30px 0px;
+}
+
+.calendarDateTable {
+	border: solid 2px grey;
+	width: 500px;
+	height: 80px;
+	padding: 5px 0px 30px 0px;
+}
+
+.twoSeasonsDateTable {
+	border: solid 2px grey;
+	width: 500px;
+	height: 80px;
+	padding: 5px 0px 30px 0px;
+}
+
+.fourSeasonsDateTable {
+	border: solid 2px grey;
+	width: 500px;
+	height: 80px;
+	padding: 5px 0px 30px 0px;
+}
+
+.geogPanel {
+	border: solid 2px #000099;
+	width: 500px;
+	height: 230px;
+	padding: 3px;
+}
+
+.geogTabPanel {
+	width: 500px;
+	height: 230px;
+}
+
+.entireSystemGeogTable {
+	border: solid 2px grey;
+	width: 500px;
+	height: 230px;
+}
+
+.regionGeogTable {
+	border: solid 2px grey;
+	width: 500px;
+	height: 230px;
+}
+
+.areaGeogTable {
+	border: solid 2px grey;
+	width: 500px;
+	height: 230px;
+}
+
+.substationGeogTable {
+	border: solid 2px grey;
+	width: 500px;
+	height: 230px;
+}
+
+.mpGeogTable {
+	border: solid 2px grey;
+	width: 500px;
+	height: 230px;
+}
+
+.importExportGeogTable {
+	border: solid 2px grey;
+	width: 500px;
+	height: 230px;
+	padding: 5px 0px 5px 0px;
+}
+
+.volumesPanel {
+	border: solid 2px #000099;
+	width: 400px;
+	height: 80px;
+	padding: 3px;
+}
+
+.volumesSubPanel {
+	width: 400px;
+	height: 80px;
+}
+
+.volumesTable {
+	width: 400px;
+	height: 80px;
+	padding: 5px 0px 5px 0px;
+}
+
+.poiPanel {
+	border: solid 2px #000099;
+	width: 400px;
+	height: 150px;
+	padding: 3px;
+}
+
+.poiTabPanel {
+	width: 400px;
+	height: 150px;
+}
+
+.poiPercentileTable {
+	border: solid 2px grey;
+	width: 400px;
+	height: 150px;
+	padding: 5px 0px 5px 0px;
+}
+
+.poiHourlyTable {
+	border: solid 2px grey;
+	width: 400px;
+	height: 150px;
+	padding: 5px 0px 5px 0px;
+}
+
+.buttonPanel {
+	padding: 10px;
+	width: 800px;
+}
+
+/*****************************
+         Tabs
+*****************************/
+.tabSet {
+  padding-top: 5px;
+  padding-right: 2px;
+}
+
+.gwt-TabPanel {
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+
+.gwt-TabPanelBottom {
+	
+}
+
+.gwt-TabBar {
+	
+}
+
+.gwt-TabBar .gwt-TabBarFirst {
+	
+}
+
+.gwt-TabBar .gwt-TabBarRest {
+	
+}
+
+.gwt-TabBar .gwt-TabBarItem {
+	padding: 4px;
+	cursor: pointer;
+	cursor: hand;
+	font-size: 80%;
+	background-color: #e8eef7;
+	border-bottom: 2px solid white;
+	margin-right: 2px;
+}
+
+.gwt-TabBar .gwt-TabBarItem-selected {
+	padding: 4px;
+	font-weight: bold;
+	cursor: default;
+	font-size: 80%;
+	background-color: #d0d0d0;
+	border-bottom: 2px solid #d0d0d0;
+	margin-right: 2px;
+}
+
+/***************************
+    History Widget styles
+***************************/
+.queryHistoryWidget {
+	font-size: 80%;
+	cursor: pointer;
+	cursor: hand;
+	border-left: 1px solid #666;
+	border-right: 1px solid #666;
+	border-bottom: 1px solid #666;
+}
+
+.queryHistoryWidget td {
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+	padding: 2px 5px 2px 5px;
+	white-space: nowrap;
+}
+
+.queryHistoryWidgetHeader {
+  padding: 0px;
+  color: #ffffff;
+  background-color: #000099;
+  font-weight: bold;
+}
+
+.queryHistoryWidgetHeader td {
+	padding: 2px 5px 2px 5px;
+	border-top: 1px solid #666;
+	border-bottom: 1px solid #666;
+}
+
+.queryHistoryWidgetCommonRow {
+	background: #ffff99;
+}
+
+.queryHistoryWidgetCommonRow {
+  background: #ffff99;
+}
+.queryHistoryWidgetSelectedRow {
+	background: #eee;
+}
+
+.queryHistoryWidgetSelectedRow td {
+	border-bottom: 1px solid #666;
+	border-top: 1px solid #666;
+}
+
+/*****************************
+          Labels
+******************************/
+.label {
+	font-size: smaller;
+	white-space: nowrap;
+}
+
+.titlelabel {
+	color: #ffffff;
+	background-color: #000099;
+	font-size: smaller;
+	font-weight: bold;
+	white-space: nowrap;
+	padding: 2px;
+}
+
+.smallLabel {
+	font-size: 70%;
+	white-space: nowrap;
+}
+
+.boldlabel {
+	font-size: smaller;
+	font-weight: bold;
+	white-space: nowrap;
+}
+
+.title {
+	font-size: 125%;
+	font-weight: bold;
+	white-space: nowrap;
+}
+
+/*****************************
+    Other UI components
+******************************/
+.listBox {
+	width: 300px;
+}
+
+.smallListBox {
+	width: 120px;
+}
+
+.smallListBox {
+  width: 120px; 
+}
+
+.checkBox {
+	font-size: smaller;
+	width: 80px;
+}
+
+.radioButton {
+	font-size: smaller;
+	width: 80px;
+}
+
+.logout {
+	font-size: smaller;
+	white-space: nowrap;
+}
+
+.queryName {
+	width: 500px;
+}
+
+.dateButton {
+	border: none;
+	background: #f5f5f5 url("calendar.gif") no-repeat left center;
+	color: darkblue;
+	cursor: pointer;
+	padding-left: 16px !important;
+}
+
+.dateButton:hover {
+	background: #dfdfdf url("gwtc-calendar.gif") no-repeat left center;
+	color: #f60;
+}
+
+/*****************************
+          Dialogs
+******************************/
+.dialog {
+	font-size: smaller;
+	background-color: #e8eef7;
+	border: solid 1px #000099;
+}
+
+.dialogMainPanel {
+	padding-top: 0;
+	padding-bottom: 5px;
+}
+
+.dialogTitleBar {
+	padding-top: 0;
+	background-color: #000099;
+	width: 100%;
+}
+
+.dialogTitleLabel {
+	font-size: smaller;
+	color: #ffffff;
+	font-weight: bold;
+	white-space: nowrap;
+	padding: 5px 5px 5px 5px;
+}
+
+.dialogContentLabel {
+	font-size: smaller;
+	padding: 5px 5px 5px 5px;
+}
+
+.dialogButton {
+	width: 50px;
+}
+
+.query-Detail {
+	border: 1px solid #666;
+	margin-top: 4px;
+}
+
+.query-DetailHeader {
+	background: #eee;
+	border-bottom: 1px solid #666;
+	padding: 6px 4px;
+}
+
+.query-DetailHeader td {
+	padding: 0;
+}
+
+.query-DetailInner {
+	background-color: white;
+	font-size: 80%;
+}
+
+.gwt-SuggestBox {
+	width: 200px;
+}
+
+.gwt-SuggestBoxPopup {
+	background-color: #ffffff;
+	border: solid 1px blue;
+	height: 200px;
+	width: 300px;
+	overflow-y: auto;
+	cursor: pointer;
+	cursor: hand;
+}
+
+.gwt-SuggestBoxPopup.item {
+	font-size: 70%;
+	font-weight: normal;
+}
+
+.gwt-SuggestBoxPopup.item-selected {
+	background-color: #eeeeee
+}
+
+/* date picker */
+.goog-date-picker {
+	border: 1px solid black;
+	text-align: center;
+	vertical-align: middle;
+	background-color: #d0d0d0;
+}
+
+.goog-date-picker .grid {
+	font: menu;
+	border-collapse: collapse;
+}
+
+.goog-date-picker .grid {
+	font: menu;
+	border-collapse: collapse;
+}
+
+.goog-date-picker .grid td {
+	border-width: 1px;
+	padding: 0px;
+	border-style: solid;
+	border-color: white;
+	height: 20px;
+	width: 4ex;
+}
+
+.goog-date-picker .week-names {
+	color: gray;
+	text-align: center;
+	font-size: 0.8em;
+}
+
+.goog-date-picker .week-numbers {
+	color: gray;
+	text-align: center;
+}
+
+.goog-date-picker .control {
+	font: san-serif;
+	font-size: 12pt;
+	text-align: center;
+	padding: 2px 2px 2px 2px;
+	margin: 0px 1px 0px 1px;
+}
+
+.goog-date-picker .title {
+	border: 1px solid gray;
+	background: buttonface;
+	font: san-serif;
+	text-align: center;
+	vertical-align: middle;
+	width: 8ex;
+	font-size: 10pt;
+	padding: 1px 2px 1px 2px;
+}
+
+.goog-date-picker .control-today {
+	border: 1px solid gray;
+	background: buttonface;
+	font: san-serif;
+	text-align: center;
+	vertical-align: middle;
+	width: 25ex;
+	font-size: 10pt;
+}
+
+.goog-date-picker .control-menu {
+	margin: 0px 1px 0px 1px;
+}
+
+.goog-date-picker .control-block {
+	margin: 1px 1px 1px 1px;
+}
+
+.goog-date-picker .control-pane {
+	margin: 1px 1px 1px 1px;
+}
+
+.goog-date-picker .control-submenu {
+	font: menu;
+}
+
+.goog-date-picker .weekday {
+	text-align: center;
+	vertical-align: middle;
+	font: menu;
+}
+
+.goog-date-picker .weekend-start {
+	background-color: rgb(255, 204, 204);
+	text-align: center;
+	vertical-align: middle;
+	font: menu;
+}
+
+.goog-date-picker .weekend-end {
+	background-color: rgb(255, 204, 204);
+	text-align: center;
+	vertical-align: middle;
+	font: menu;
+	color: red;
+}
+
+.goog-date-picker .today {
+	font: menu;
+	font-weight: bold !important;
+}
+
+.goog-date-picker .selected {
+	font: menu;
+	background-color: rgb(204, 204, 255);
+	color: blue;
+}
+
+.goog-date-picker .special {
+	font-weight: bold !important;
+	background: #FF6347;
+}
+
+.goog-date-picker .other-month {
+	filter: Alpha(Opacity = 30);
+	opacity: 0.3;
+}

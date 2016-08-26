@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+	<context-param>
+	     <param-name>contextConfigLocation</param-name>
+	     <param-value>/WEB-INF/applicationContext.xml</param-value>
+	</context-param>
+
+	<servlet>
+		<servlet-name>action</servlet-name>
+		<servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
+		<init-param>
+			<param-name>definitions-parser-details</param-name>
+			<param-value>1</param-value>
+		</init-param>
+		<init-param>
+			<param-name>debug</param-name>
+			<param-value>1</param-value>
+		</init-param>
+		<init-param>
+			<param-name>definitions-debug</param-name>
+			<param-value>1</param-value>
+		</init-param>
+		<init-param>
+			<param-name>detail</param-name>
+			<param-value>1</param-value>
+		</init-param>
+		<init-param>
+			<param-name>definitions-parser-validate</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config</param-name>
+			<param-value>/WEB-INF/struts-config.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet>
+		<servlet-name>context</servlet-name>
+		<servlet-class>org.springframework.web.context.ContextLoaderServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet>
+		<servlet-name>EvqService</servlet-name>
+		<servlet-class>ca.aeso.evq.server.servlet.EvqServiceImpl</servlet-class>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	<servlet>
+		<servlet-name>EvqDownloadServlet</servlet-name>
+		<servlet-class>ca.aeso.evq.server.servlet.EvqDownloadServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>EvqReaperServlet</servlet-name>
+		<servlet-class>ca.aeso.evq.server.servlet.EvqReaperServlet</servlet-class>
+		<load-on-startup>3</load-on-startup>
+	</servlet>
+	
+	
+	
+	<servlet-mapping>
+		<servlet-name>action</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EvqService</servlet-name>
+		<url-pattern>/evq.service</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EvqDownloadServlet</servlet-name>
+		<url-pattern>/evq.download</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EvqReaperServlet</servlet-name>
+		<url-pattern>/evq.reaper</url-pattern>
+	</servlet-mapping>
+
+	<welcome-file-list>
+		<welcome-file>ElectricalVolumesQuery.html</welcome-file>
+	</welcome-file-list>	
+
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Secure Resources</web-resource-name>
+			<url-pattern>/ElectricalVolumesQuery.html</url-pattern>
+			<url-pattern>/index.html</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>EvqUser</role-name>
+		</auth-constraint>
+	</security-constraint>
+	<login-config>
+		<auth-method>FORM</auth-method>
+		<form-login-config>
+			<form-login-page>/login.html</form-login-page>
+			<form-error-page>/loginerror.html</form-error-page>
+		</form-login-config>
+	</login-config>
+	<security-role>
+		<description>EVQ web user</description>
+		<role-name>EvqUser</role-name>
+	</security-role>
+	<session-config>
+  		<session-timeout>300</session-timeout>
+	</session-config>
+
+</web-app>

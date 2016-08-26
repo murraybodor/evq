@@ -1,0 +1,60 @@
+moduleType=ear
+applicationID=evq
+bindWebApp=default-web-site
+webSiteBindings=
+parent=default
+moduleID=.
+doctype=orion-application
+<?xml version="1.0" encoding="UTF-8"?>
+<orion-application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://xmlns.oracle.com/oracleas/schema/orion-application-10_0.xsd">
+	<jazn provider="XML" location="file:/C:/apps/OC4J101310/j2ee/home/config/system-jazn-data.xml" default-realm="jazn.com">
+	</jazn>
+	<web-module path="evq_DEV.war" id="evq">
+	</web-module>
+	<persistence path="persistence">
+	</persistence>
+	<log>
+		<file path="application.log" />
+	</log>	
+	<imported-shared-libraries> 
+		<remove-inherited name="apache.commons.logging"/> 
+	</imported-shared-libraries>
+	<data-sources path="data-sources.xml">
+	</data-sources>
+	<namespace-access>
+		<read-access>
+			<namespace-resource root="">
+				<security-role-mapping>
+					<group name="EVQ_USER"/>
+				</security-role-mapping>
+			</namespace-resource>
+		</read-access>
+		<write-access>
+			<namespace-resource root="">
+				<security-role-mapping>
+					<group name="EVQ_USER"/>
+				</security-role-mapping>
+			</namespace-resource>
+		</write-access>
+	</namespace-access>
+</orion-application>
+moduleID=data-sources
+doctype=data-sources
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<data-sources>
+  <managed-data-source connection-pool-name="evqPool" jndi-name="jdbc/evq" name="evqDataSource"/>
+  <connection-pool name="evqPool" initial-limit="10" max-connections="20" min-connections="5" validate-connection="true" validate-connection-statement="select * from dual">
+      <connection-factory factory-class="oracle.jdbc.pool.OracleDataSource" user="evq" password="shasta2party" url="jdbc:oracle:thin:@aesobu1.aeso.ca:1521:corpd"/>
+  </connection-pool>
+</data-sources>
+moduleID=evq_DEV.war
+doctype=orion-web-app
+<?xml version="1.0" encoding="UTF-8"?>
+<orion-web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://xmlns.oracle.com/oracleas/schema/orion-web-10_0.xsd" context-root="evq">
+	<security-role-mapping name="EvqUser">
+		<group name="EVQ_USER"/>
+	</security-role-mapping>
+	<web-app-class-loader search-local-classes-first="true" include-war-manifest-class-path="true">
+	</web-app-class-loader>
+</orion-web-app>
+

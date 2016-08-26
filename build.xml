@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="evq" default="war" basedir=".">
+
+  <property name="webinf.dir" location="${basedir}/WEB-INF" />
+  <property name="webinf.lib.dir" location="${webinf.dir}/lib" />
+  <property name="jsp.dir"     location="${webinf.dir}/jsp" />
+  <property name="src.dir"     location="${basedir}/src" />
+  <property name="resources.conf.dir"     location="${basedir}/src/conf" />
+  <property name="bin.dir"     location="${basedir}/bin" />
+  <property name="conf.dir"     location="${basedir}/conf/oas" />
+  <property name="dist.dir"     location="${basedir}/dist" />
+  <property name="app.name" value="ca.aeso.evq.ElectricalVolumesQuery"/>
+  <property name="catalina.home"  location="c:\apps\apache-tomcat-5.5.23" />
+  <property name="oas.home"  location="c:\apps\OC4J101310" />
+  <property name="localhost.url"  location="http://localhost:8888/evq/" />
+  <property name="gwt.dir" location="C:\gwt-1.4.60" />	
+
+  <!-- set classpath -->
+  <path id="project.class.path">
+    <pathelement path="${java.class.path}/"/>
+    <pathelement location="${webinf.lib.dir}/struts.jar" />
+    <pathelement location="${webinf.lib.dir}/commons-logging-1.1.1.jar" />
+    <pathelement location="${webinf.lib.dir}/spring.jar" />
+    <pathelement location="${webinf.lib.dir}/spring-jdbc.jar" />
+    <pathelement location="${webinf.lib.dir}/poi-3.0.1.jar" />
+    <pathelement location="${webinf.lib.dir}/ojdbc14.jar" />
+    <pathelement location="${webinf.lib.dir}/gwt-user.jar" />
+  </path>
+
+  <path id="gwt.libraries">
+    <path location="${gwt.dir}/gwt-user.jar"/>
+    <path location="${gwt.dir}/gwt-dev-windows.jar"/>
+  </path>
+
+  <target name="init">
+    <mkdir dir="${bin.dir}" />
+    <mkdir dir="${dist.dir}" />
+  </target>
+  	
+
+  <target name="compile" description="Compile src to bin" depends="init">
+    <javac srcdir="${src.dir}" destdir="${bin.dir}" includes="**" debug="on" debuglevel="lines,vars,source" source="1.4">
+      <classpath refid="project.class.path"/>
+    </javac>
+  </target>
+
+  <target name="jar" description="Compile src to bin" depends="compile">
+  	<mkdir dir="${dist.dir}/${app.name}/WEB-INF/lib"/>
+  	<jar destfile="${dist.dir}/${app.name}/WEB-INF/lib/evq.jar">
+  	      <fileset dir="${bin.dir}">
+  	        <include name="**/*.class"/>
+  	      </fileset>
+  	      <!-- Get everything except for java source files -->
+  	      <fileset dir="${src.dir}">
+  	        <exclude name="**/*.java"/>
+  	      </fileset>
+  	    </jar>
+  </target> 
+  	
+  <target name="gwt.compile" depends="compile">
+    <java fork="true" classname="com.google.gwt.dev.GWTCompiler">
+        <classpath refid="gwt.libraries"/>
+        <classpath>
+		    <pathelement path="${src.dir}"/>
+    	</classpath>
+        <arg value="-out"/>
+        <arg value="${dist.dir}"/>
+        <arg value="${app.name}"/>
+     </java>
+  </target>
+
+  <!-- Assemble all resources and build a deployable WAR file -->
+  <target name="war" depends="gwt.compile" description="Package a deployable war">
+	  	<mkdir dir="${dist.dir}/${app.name}/WEB-INF/classes"/>
+
+	  	<!-- all -->
+	  	<copy todir="${dist.dir}/${app.name}/WEB-INF" overwrite="true">
+	      <fileset dir="${webinf.dir}">
+	        <include name="**/*.xml" />
+	        <include name="**/*.html" />
+	      </fileset>
+	      <fileset dir="${conf.dir}">
+	        <include name="**/applicationContext.xml" />
+	      </fileset>
+		</copy>  
+
+		<copy todir="${dist.dir}/${app.name}/WEB-INF/jsp" overwrite="true">
+		    <fileset dir="${jsp.dir}">
+		      <include name="**/*.jsp" />
+		    </fileset>
+		</copy>
+  	
+		<copy todir="${dist.dir}/${app.name}/WEB-INF/classes" overwrite="true">
+	      <fileset dir="${bin.dir}">
+	        <include name="**/*.class" />
+	      </fileset>
+	      <fileset dir="${src.dir}">
+	        <include name="**/*.xml" />
+	      </fileset>
+	      <fileset dir="${resources.conf.dir}">
+	        <include name="**/*.properties" />
+	      </fileset>
+		</copy>  
+
+	 	<copy file="${webinf.lib.dir}/struts.jar" todir="${dist.dir}/${app.name}/WEB-INF/lib" /> 
+	  	<copy file="${webinf.lib.dir}/commons-logging-1.1.1.jar" todir="${dist.dir}/${app.name}/WEB-INF/lib" /> 
+	  	<copy file="${webinf.lib.dir}/commons-beanutils.jar" todir="${dist.dir}/${app.name}/WEB-INF/lib" /> 
+	  	<copy file="${webinf.lib.dir}/commons-digester.jar" todir="${dist.dir}/${app.name}/WEB-INF/lib" /> 
+	  	<copy file="${webinf.lib.dir}/commons-lang-2.0.jar" todir="${dist.dir}/${app.name}/WEB-INF/lib" /> 
+	  	<copy file="${webinf.lib.dir}/log4j-1.2.14.jar" todir="${dist.dir}/${app.name}/WEB-INF/lib" /> 
+	  	<copy file="${webinf.lib.dir}/spring.jar" todir="${dist.dir}/${app.name}/WEB-INF/lib" /> 
+	  	<copy file="${webinf.lib.dir}/spring-jdbc.jar" todir="${dist.dir}/${app.name}/WEB-INF/lib" /> 
+	  	<copy file="${webinf.lib.dir}/poi-3.0.1.jar" todir="${dist.dir}/${app.name}/WEB-INF/lib" /> 
+	  	<copy file="${webinf.lib.dir}/gwt-servlet.jar" todir="${dist.dir}/${app.name}/WEB-INF/lib" /> 
+
+	  	
+	  	<!-- dev -->
+		<copy file="${conf.dir}/log4j_DEV.xml" tofile="${dist.dir}/${app.name}/WEB-INF/classes/log4j.xml" overwrite="true" />
+	  	<copy file="${conf.dir}/evq_plan_DEV.dat" todir="${dist.dir}/" /> 
+	  	<war warfile="${dist.dir}/evq_DEV.war" basedir="${dist.dir}/${app.name}" manifest="${conf.dir}/MANIFEST.MF"/>
+	  	
+		<!-- test -->	
+		<copy file="${conf.dir}/log4j_TEST.xml" tofile="${dist.dir}/${app.name}/WEB-INF/classes/log4j.xml" overwrite="true" />
+	  	<copy file="${conf.dir}/evq_plan_TEST.dat" todir="${dist.dir}/" /> 
+	  	<war warfile="${dist.dir}/evq_TEST.war" basedir="${dist.dir}/${app.name}" manifest="${conf.dir}/MANIFEST.MF"/>
+	  	
+	  	<!-- integ -->
+		<copy file="${conf.dir}/log4j_INTEG.xml" tofile="${dist.dir}/${app.name}/WEB-INF/classes/log4j.xml" overwrite="true" />
+	  	<copy file="${conf.dir}/evq_plan_INTEG.dat" todir="${dist.dir}/" /> 
+	  	<war warfile="${dist.dir}/evq_INTEG.war" basedir="${dist.dir}/${app.name}" manifest="${conf.dir}/MANIFEST.MF"/>
+
+	  	<!-- prod -->
+		<copy file="${conf.dir}/log4j_PROD.xml" tofile="${dist.dir}/${app.name}/WEB-INF/classes/log4j.xml" overwrite="true" />
+	  	<copy file="${conf.dir}/evq_plan_PROD.dat" todir="${dist.dir}/" /> 	
+	  	<war warfile="${dist.dir}/evq_PROD.war" basedir="${dist.dir}/${app.name}" manifest="${conf.dir}/MANIFEST.MF"/>
+  	
+
+  </target>
+	
+  <target name="deploy" depends="war">
+	<copy file="${dist.dir}/evq_DEV.war" todir="${catalina.home}/webapps" /> 
+  </target>
+
+  <target name="clean">
+    <!-- Delete the bin directory tree -->
+    <delete dir="${bin.dir}" />
+    <delete dir="${dist.dir}" />
+  </target>
+
+  <target name="all" depends="war"/>
+	
+ <!-- Run the GWT shell browser -->
+ <!-- NOTE: OAS must be running locally! -->
+  <target name="GWT.shell" depends="gwt.compile">
+	    <java fork="true" classname="com.google.gwt.dev.GWTShell">
+	        <classpath refid="gwt.libraries"/>
+	        <classpath>
+			    <pathelement path="${src.dir}"/>
+	    	</classpath>
+	        <arg value="-noserver"/>
+	        <arg value="-out"/>
+	        <arg value="${dist.dir}"/>
+	        <arg value="http://localhost:8888/evq/index.html"/>
+	     </java>
+  </target>
+	
+</project>
