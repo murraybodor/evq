@@ -1,15 +1,16 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-   <name>evq</name>
-   <comment>evq project</comment>
-   <projects/>
-   <buildSpec>
-       <buildCommand>
-           <name>org.eclipse.jdt.core.javabuilder</name>
-           <arguments/>
-       </buildCommand>
-   </buildSpec>
-   <natures>
-       <nature>org.eclipse.jdt.core.javanature</nature>
-   </natures>
+	<name>evq</name>
+	<comment></comment>
+	<projects/>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments/>
+		</buildCommand>
+	</buildSpec>
+	<linkedResources/>
 </projectDescription>
